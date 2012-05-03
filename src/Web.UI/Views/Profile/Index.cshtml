@@ -1,0 +1,16 @@
+﻿@model Messages.InputModels.Profile 
+
+@{
+    ViewBag.Title = "Add your profile information";
+}
+
+@if (ViewBag.ResponseText != null)
+{
+    <label>Your profile id is @ViewBag.ResponseText </label>
+}
+
+<h2>Enter your profile information</h2>
+@using (@Html.BeginForm("add", "profile")) {
+    @Html.EditorForModel()
+    <button type="submit" class="btn">Submit</button>
+}
