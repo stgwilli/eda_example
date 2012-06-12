@@ -1,6 +1,6 @@
 ﻿using NServiceBus;
 
-namespace ProfileEndpoint
+namespace RegistrationEndpoint
 {
     public class EndpointConfiguration : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
     {
@@ -8,6 +8,7 @@ namespace ProfileEndpoint
         {
             Configure.With()
                 .StructureMapBuilder()
+                .RavenSubscriptionStorage()
                 .XmlSerializer()
                 .MsmqTransport()
                 .UnicastBus();

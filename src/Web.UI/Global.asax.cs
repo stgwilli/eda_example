@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using NServiceBus;
-using Web.UI.Infrastructure;
+using Web.UI.Infrastructure.Filters;
 
 namespace Web.UI
 {
@@ -9,6 +9,7 @@ namespace Web.UI
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new RavenSessionFilter());
             filters.Add(new HandleErrorAttribute());
         }
 
@@ -32,8 +33,7 @@ namespace Web.UI
             RegisterRoutes(RouteTable.Routes);
 
             Configure.WithWeb()
-                .DefaultBuilder()
-                .for_mvc()
+                .StructureMapBuilder()
                 .XmlSerializer()
                 .Log4Net()
                 .MsmqTransport()
@@ -43,9 +43,6 @@ namespace Web.UI
                     .ImpersonateSender(false)
                 .CreateBus()
                 .Start();
-
-                
-
         }
     }
 }

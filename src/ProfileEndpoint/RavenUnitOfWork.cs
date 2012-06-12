@@ -2,7 +2,7 @@
 using NServiceBus.UnitOfWork;
 using Raven.Client;
 
-namespace ProfileEndpoint
+namespace RegistrationEndpoint
 {
     public class RavenUnitOfWork : IManageUnitsOfWork
     {

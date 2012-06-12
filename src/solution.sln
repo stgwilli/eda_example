@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.UI", "Web.UI\Web.UI.csproj", "{F3C6360C-DA5E-46A5-8AE9-80F4EC5F2369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileEndpoint", "ProfileEndpoint\ProfileEndpoint.csproj", "{33B6CBF5-2011-4FFB-8936-175F7E64234E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationEndpoint", "ProfileEndpoint\RegistrationEndpoint.csproj", "{33B6CBF5-2011-4FFB-8936-175F7E64234E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using NServiceBus;
+using Web.UI.DependencyResolution;
 using Web.UI.Infrastructure.Extensions;
 
 namespace Web.UI.Infrastructure
@@ -13,7 +14,7 @@ namespace Web.UI.Infrastructure
             Configure.TypesToScan
                 .Where(t => typeof(IController).IsAssignableFrom(t))
                 .each(c => configure.Configurer.ConfigureComponent(c, DependencyLifecycle.InstancePerCall));
-            DependencyResolver.SetResolver(new NServiceBusDependencyResolverAdapter(configure.Builder));
+            DependencyResolver.SetResolver(new SmDependencyResolver(IoC.initialize()));
             return configure;
         }
     }

@@ -1,13 +1,21 @@
 ﻿using System.Web.Mvc;
 using Messages.Commands;
-using Messages.InputModels;
 using NServiceBus;
+using Raven.Client;
+using Web.UI.Models;
 
 namespace Web.UI.Controllers
 {
     public class ProfileController : Controller
     {
-        public IBus bus { get; set; }
+        IDocumentSession session;
+        IBus bus;
+
+        public ProfileController(IDocumentSession session, IBus bus)
+        {
+            this.session = session;
+            this.bus = bus;
+        }
 
         public ActionResult index()
         {
@@ -17,7 +25,8 @@ namespace Web.UI.Controllers
         [HttpPost]
         public ActionResult add(Profile profile_input_model)
         {
-            bus.Send(new AddProfile { profile_information = profile_input_model });
+            session.Store(profile_input_model);
+            bus.Send(new StartMemberRegistrationProcess(profile_input_model.id));
             return RedirectToAction("index");
         }
     }

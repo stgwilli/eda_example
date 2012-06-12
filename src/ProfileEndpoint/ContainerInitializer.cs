@@ -4,7 +4,7 @@ using Raven.Client;
 using Raven.Client.Document;
 using StructureMap;
 
-namespace ProfileEndpoint
+namespace RegistrationEndpoint
 {
     public class ContainerInitializer : IWantCustomInitialization
     {

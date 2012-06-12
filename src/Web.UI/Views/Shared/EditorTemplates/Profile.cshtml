@@ -1,0 +1,11 @@
+﻿@using Web.UI.Infrastructure.Extensions
+@model Web.UI.Models.Profile
+
+<div>
+    @Html.label_for(x => x.first_name)
+    @Html.EditorFor(x => x.first_name)
+</div>
+<div>
+    @Html.label_for(x => x.last_name)
+    @Html.EditorFor(x => x.last_name)
+</div>
